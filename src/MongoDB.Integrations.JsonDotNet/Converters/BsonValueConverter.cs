@@ -14,6 +14,7 @@
 */
 
 using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Globalization;
 using MongoDB.Bson;
@@ -75,7 +76,7 @@ namespace MongoDB.Integrations.JsonDotNet.Converters
         /// <inheritdoc/>
         public override bool CanConvert(Type objectType)
         {
-            return typeof(BsonValue).IsAssignableFrom(objectType);
+            return typeof(BsonValue).GetTypeInfo().IsAssignableFrom(objectType);
         }
 
         /// <inheritdoc/>

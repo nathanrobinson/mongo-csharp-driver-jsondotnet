@@ -240,7 +240,7 @@ namespace MongoDB.Integrations.JsonDotNet
         public override void WriteValue(char value)
         {
             base.WriteValue(value);
-            _wrappedWriter.WriteString(value.ToString(CultureInfo.InvariantCulture));
+            _wrappedWriter.WriteString(value.ToString()); //CultureInfo.InvariantCulture));
         }
 
         /// <inheritdoc/>

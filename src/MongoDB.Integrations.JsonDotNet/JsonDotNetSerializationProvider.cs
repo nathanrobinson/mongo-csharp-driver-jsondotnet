@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
@@ -76,7 +77,7 @@ namespace MongoDB.Integrations.JsonDotNet
         /// <inheritdoc/>
         public IBsonSerializer GetSerializer(Type type)
         {
-            if (!_predicate(type) || typeof(BsonValue).IsAssignableFrom(type))
+            if (!_predicate(type) || typeof(BsonValue).GetTypeInfo().IsAssignableFrom(type))
             {
                 return null;
             }
